@@ -31,6 +31,26 @@ function shuffle(aray, val = aray.length) {
     }
 }
 
+function monetary(val, moeda = "R$") {
+    const temp = ((Math.round(val*100)/100 + "").split("."));
+    let temp2 = "";
+    let valint = parseInt(temp[0]);
+    while (valint > 1000) {
+        valint /= 1000;
+        const splinter = (valint + "").split(".");
+        let temp3 = splinter[1] || "";
+        while (temp3.length < 3)
+            temp3 += "0";
+        temp2 = "." + temp3 + temp2;
+        valint = parseInt(splinter[0]);
+    }
+    valint += temp2;
+    let valdec = temp[1] || "00";
+    while (valdec.length < 2)
+        valdec += "0";
+    return moeda + " " + valint + "," + valdec;
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // /

@@ -113,28 +113,14 @@ function escolher(value) {
     console.log(pergunta);
     
     switch (pergunta.func) {
+        case qcapital:
         case qmontante:
             for (let i = 0; i < 4; i++) {
-                const temp = ((Math.round((alternativas[i])*100)/100 + "").split("."));
-                let temp2 = "";
-                let valint = parseInt(temp[0]);
-                while (valint > 1000) {
-                    valint /= 1000;
-                    const splinter = (valint + "").split(".");
-                    let temp3 = splinter[1] || "";
-                    while (temp3.length < 3)
-                        temp3 += "0";
-                    temp2 = "." + temp3 + temp2;
-                    valint = parseInt(splinter[0]);
-                }
-                valint += temp2;
-                let valdec = temp[1] || "00";
-                while (valdec.length < 2)
-                    valdec += "0";
-                opcoesdiv[i].textContent = letras[i] + ") R$ " + valint + "," + valdec;
+                opcoesdiv[i].textContent = letras[i] + ") " + monetary(pergunta.opt[i]);
             }
             break;
-        case null:
+        case qjuros:
+        case qjuros2:
             for (let i = 0; i < 4; i++) {
                 opcoesdiv[i].textContent = letras[i] + ") " + Math.round((alternativas[i])*100)/100 + "%";
             }
@@ -256,10 +242,10 @@ const bum = newdiv("bum", "💣");
 const letras = ['A', 'B', 'C', 'D'];
 let resposta = null;
 
-const contracts = assigncontracts(22);
+const contracts = assigncontracts(20);
 
 let team = 0;
-let teamskip = [1, 1];
+let teamskip = [2, 2];
 
 const pos_score = 1200;
 const neg_score = -500;
