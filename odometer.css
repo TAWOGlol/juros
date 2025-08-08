@@ -1,0 +1,33 @@
+.numholder {
+    padding: 4px;
+    border-radius: 8px;
+    background-color: var(--cor0);
+    margin: auto;
+    width: max-content;
+    overflow: hidden;
+    font-size: 3svh;
+    height: 4.5svh;
+}
+
+.namba, .denario, .ponto {
+    display: inline-block;
+    line-height: 1.5em;
+    vertical-align: top;
+    text-align: center;
+}
+
+.namba {
+    --na: 0em;
+    --nb: 0em;
+    width: 0.8em;
+    position: relative;
+    animation: nn 500ms ease-in-out both;
+}
+
+@keyframes nn {
+    from {
+        top: var(--na);
+    } to {
+        top: var(--nb);
+    }
+}

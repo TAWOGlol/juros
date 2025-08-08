@@ -1,0 +1,17 @@
+.loading {
+    z-index: 69420;
+    position: fixed;
+    inset: 50svh 50svw;
+    transform: translate(-50%, -50%);
+    animation: speen 2s linear infinite both;
+    /*
+    */
+}
+
+@keyframes speen {
+    from {
+        transform: translate(-50%, -50%) rotateZ(0deg);
+    } to {
+        transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}
